@@ -1,2 +1,2 @@
 # biblioteca
-API de una biblioteca utilizando patrón MVC en Go
+API de un CRUD de libros utilizando patrón MVC en Go
