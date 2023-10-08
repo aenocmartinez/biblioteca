@@ -20,7 +20,7 @@ var lock = &sync.Mutex{}
 var instance *connectMySQL
 
 var user string = "root"
-var pass string = "Abix.360*"
+var pass string = ""
 var host string = "localhost"
 var port string = "3306"
 var database string = "librarydb"
