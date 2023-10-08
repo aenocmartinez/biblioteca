@@ -2,12 +2,26 @@ package controller
 
 import (
 	"biblioteca/model"
-	"biblioteca/view"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
+
+type RequestCreate struct {
+	Title           string `json:"title" binding:"required"`
+	Author          string `json:"author" binding:"required"`
+	YearPublication int    `json:"year_publication" binding:"required"`
+	Summary         string `json:"summary" binding:"required"`
+}
+
+type RequestUpdate struct {
+	Id              int64  `json:"id" binding:"required"`
+	Title           string `json:"title" binding:"required"`
+	Author          string `json:"author" binding:"required"`
+	YearPublication int    `json:"year_publication" binding:"required"`
+	Summary         string `json:"summary" binding:"required"`
+}
 
 func BookList(c *gin.Context) {
 	books := model.BookList()
@@ -15,7 +29,7 @@ func BookList(c *gin.Context) {
 }
 
 func CreateBook(c *gin.Context) {
-	var req view.RequestCreate
+	var req RequestCreate
 	err := c.ShouldBind(&req)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -52,7 +66,7 @@ func ReadBook(c *gin.Context) {
 }
 
 func UpdateBook(c *gin.Context) {
-	var req view.RequestUpdate
+	var req RequestUpdate
 	err := c.ShouldBind(&req)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
