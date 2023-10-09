@@ -10,18 +10,18 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type connectMySQL struct {
+type connectPostgreSQL struct {
 	conn *sql.DB
 }
 
-func (cm *connectMySQL) Conn() *sql.DB {
+func (cm *connectPostgreSQL) Conn() *sql.DB {
 	return cm.conn
 }
 
 var lock = &sync.Mutex{}
-var instance *connectMySQL
+var instance *connectPostgreSQL
 
-func InstanceDB() *connectMySQL {
+func InstanceDB() *connectPostgreSQL {
 
 	godotenv.Load(".env")
 
@@ -43,7 +43,7 @@ func InstanceDB() *connectMySQL {
 				fmt.Println(err)
 			}
 
-			instance = &connectMySQL{
+			instance = &connectPostgreSQL{
 				conn: conn,
 			}
 		}
