@@ -3,8 +3,10 @@ package model
 import (
 	"database/sql"
 	"fmt"
+	"os"
 	"sync"
 
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -19,20 +21,23 @@ func (cm *connectMySQL) Conn() *sql.DB {
 var lock = &sync.Mutex{}
 var instance *connectMySQL
 
-var user string = "fl0user"
-var pass string = "8NcmbZuOk0zq"
-var host string = "ep-patient-waterfall-23004259.us-east-2.aws.neon.fl0.io"
-var port string = "5432"
-var database string = "librarydb"
-
 func InstanceDB() *connectMySQL {
+
+	godotenv.Load(".env")
+
+	var user string = os.Getenv("DB_USER")
+	var pass string = os.Getenv("DB_PASS")
+	var host string = os.Getenv("DB_HOST")
+	var port string = os.Getenv("DB_PORT")
+	var name string = os.Getenv("DB_NAME")
+
 	if instance == nil {
 		lock.Lock()
 		defer lock.Unlock()
 
 		if instance == nil {
 
-			connStr := "host=" + host + " port=" + port + " user=" + user + " " + "password=" + pass + " dbname=" + database
+			connStr := "host=" + host + " port=" + port + " user=" + user + " " + "password=" + pass + " dbname=" + name
 			conn, err := sql.Open("postgres", connStr)
 			if err != nil {
 				fmt.Println(err)
