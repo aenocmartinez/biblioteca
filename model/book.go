@@ -26,12 +26,7 @@ func (b *Book) Create() (err error) {
 		return err
 	}
 
-	result, err := stmt.Exec(b.Title, b.Author, b.YearPublication, b.Summary)
-	if err != nil {
-		return err
-	}
-
-	b.Id, err = result.LastInsertId()
+	_, err = stmt.Exec(b.Title, b.Author, b.YearPublication, b.Summary)
 	if err != nil {
 		return err
 	}
