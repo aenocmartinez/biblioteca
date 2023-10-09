@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c198887-3afd-45e0-8795-f87d7a1d0a6b",
+		"_postman_id": "5f6d3892-e751-49ea-829d-5f08c6e27e97",
 		"name": "BIBLIOTECA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20373982"
@@ -12,12 +12,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books",
-					"protocol": "http",
+					"raw": "https://karratha-sugar-glider-ttta.2.us-1.fl0.io/books",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"karratha-sugar-glider-ttta",
+						"2",
+						"us-1",
+						"fl0",
+						"io"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]
@@ -31,15 +34,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books/7",
-					"protocol": "http",
+					"raw": "https://karratha-sugar-glider-ttta.2.us-1.fl0.io/books/1",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"karratha-sugar-glider-ttta",
+						"2",
+						"us-1",
+						"fl0",
+						"io"
 					],
-					"port": "8080",
 					"path": [
 						"books",
-						"7"
+						"1"
 					]
 				}
 			},
@@ -52,7 +58,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Código Limpio\",\n    \"author\": \"Rober C. Martin\",\n    \"year_publication\":2019,\n    \"summary\":\"Manual de estilo para el desarrllo ágil de software\"\n}",
+					"raw": "{\n    \"title\": \"Código Limpio\",\n    \"author\": \"Rober C. Martin\",\n    \"year_publication\":2018,\n    \"summary\":\"Manual de estilo para el desarrollo de software\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,12 +66,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/books",
-					"protocol": "http",
+					"raw": "https://karratha-sugar-glider-ttta.2.us-1.fl0.io/books",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"karratha-sugar-glider-ttta",
+						"2",
+						"us-1",
+						"fl0",
+						"io"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]
@@ -79,15 +88,18 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books/6",
-					"protocol": "http",
+					"raw": "https://karratha-sugar-glider-ttta.2.us-1.fl0.io/books/1",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"karratha-sugar-glider-ttta",
+						"2",
+						"us-1",
+						"fl0",
+						"io"
 					],
-					"port": "8080",
 					"path": [
 						"books",
-						"6"
+						"1"
 					]
 				}
 			},
@@ -100,7 +112,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 7,\n    \"title\": \"Introducción a la programación\",\n    \"author\": \"Luis Joyanes Aguilar\",\n    \"year_publication\": 2000,\n    \"summary\": \"Principios básicos de programación\"\n}",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"Código Limpio\",\n    \"author\": \"Rober C. Martin\",\n    \"year_publication\": 2012,\n    \"summary\": \"Manual de estilo para el desarrollo de software\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,12 +120,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/books",
-					"protocol": "http",
+					"raw": "https://karratha-sugar-glider-ttta.2.us-1.fl0.io/books",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"karratha-sugar-glider-ttta",
+						"2",
+						"us-1",
+						"fl0",
+						"io"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]

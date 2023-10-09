@@ -12,7 +12,7 @@ type RequestCreate struct {
 	Title           string `json:"title" binding:"required"`
 	Author          string `json:"author" binding:"required"`
 	YearPublication int    `json:"year_publication" binding:"required"`
-	Summary         string `json:"summary" binding:"required"`
+	Summary         string `json:"summary"`
 }
 
 type RequestUpdate struct {
@@ -20,7 +20,7 @@ type RequestUpdate struct {
 	Title           string `json:"title" binding:"required"`
 	Author          string `json:"author" binding:"required"`
 	YearPublication int    `json:"year_publication" binding:"required"`
-	Summary         string `json:"summary" binding:"required"`
+	Summary         string `json:"summary"`
 }
 
 func BookList(c *gin.Context) {
