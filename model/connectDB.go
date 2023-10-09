@@ -39,7 +39,7 @@ func InstanceDB() *connectMySQL {
 
 		if instance == nil {
 
-			connStr := "host=" + host + " port=" + port + " user=%" + user + " " + "password=" + pass + " dbname=" + database + " sslmode=disable"
+			connStr := "host=" + host + " port=" + port + " user=%" + user + " " + "password=" + pass + " dbname=" + database + " sslmode=enable"
 			conn, err := sql.Open("postgres", connStr)
 			if err != nil {
 				fmt.Println(err)
