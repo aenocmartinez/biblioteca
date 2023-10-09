@@ -35,7 +35,9 @@ func CreateBook(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
 
-	book := model.NewBook(req.Title, req.Author)
+	book := model.Book{}
+	book.Title = req.Title
+	book.Author = req.Author
 	book.YearPublication = req.YearPublication
 	book.Summary = req.Summary
 

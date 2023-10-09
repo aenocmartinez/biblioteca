@@ -12,13 +12,6 @@ type Book struct {
 	Summary         string `json:"summary,omitempty"`
 }
 
-func NewBook(title, author string) *Book {
-	return &Book{
-		Title:  title,
-		Author: author,
-	}
-}
-
 func (b *Book) Exists() bool {
 	return b.Id > 0
 }
@@ -26,7 +19,7 @@ func (b *Book) Exists() bool {
 func (b *Book) Create() (err error) {
 	db := InstanceDB()
 	var strSQL bytes.Buffer
-	strSQL.WriteString("INSERT INTO books (title, author, yearPublication, summary) VALUES (?, ?, ?, ?)")
+	strSQL.WriteString("INSERT INTO books (title, author, yearPublication, summary) VALUES ($1, $2, $3, $4)")
 
 	stmt, err := db.Conn().Prepare(strSQL.String())
 	if err != nil {
@@ -50,7 +43,7 @@ func (b *Book) Delete() (err error) {
 	db := InstanceDB()
 
 	var strSQL bytes.Buffer
-	strSQL.WriteString("DELETE FROM books WHERE id = ?")
+	strSQL.WriteString("DELETE FROM books WHERE id = $1")
 
 	stmt, err := db.Conn().Prepare(strSQL.String())
 	if err != nil {
@@ -68,7 +61,7 @@ func (b *Book) Delete() (err error) {
 func (b *Book) Update() (err error) {
 	db := InstanceDB()
 	var strSQL bytes.Buffer
-	strSQL.WriteString("UPDATE books SET title = ?, author = ?, yearPublication = ?, summary = ? WHERE id = ?")
+	strSQL.WriteString("UPDATE books SET title = $1, author = $2, yearPublication = $3, summary = $4 WHERE id = $5")
 
 	stmt, err := db.Conn().Prepare(strSQL.String())
 	if err != nil {
@@ -118,7 +111,7 @@ func BookList() []Book {
 func ReadBook(id int64) Book {
 	db := InstanceDB()
 	var strSQL bytes.Buffer
-	strSQL.WriteString("SELECT id, title, author, yearPublication, summary FROM books WHERE id = ?")
+	strSQL.WriteString("SELECT id, title, author, yearPublication, summary FROM books WHERE id = $1")
 
 	rs := db.Conn().QueryRow(strSQL.String(), id)
 
