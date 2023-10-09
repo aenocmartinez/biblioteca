@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"sync"
 
-	// _ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 )
 
@@ -19,12 +18,6 @@ func (cm *connectMySQL) Conn() *sql.DB {
 
 var lock = &sync.Mutex{}
 var instance *connectMySQL
-
-// var user string = "root"
-// var pass string = ""
-// var host string = "localhost"
-// var port string = "3306"
-// var database string = "librarydb"
 
 var user string = "fl0user"
 var pass string = "8NcmbZuOk0zq"
@@ -44,12 +37,6 @@ func InstanceDB() *connectMySQL {
 			if err != nil {
 				fmt.Println(err)
 			}
-
-			// strConnect := user + ":" + pass + "@tcp(" + host + ":" + port + ")/" + database
-			// conn, err := sql.Open("mysql", strConnect)
-			// if err != nil {
-			// 	fmt.Println(err)
-			// }
 
 			instance = &connectMySQL{
 				conn: conn,

@@ -1,5 +1,5 @@
 # biblioteca
-API REST de un CRUD de libros utilizando patrón MVC en Go y MySQL
+API REST de un CRUD de libros utilizando patrón MVC en Go y PostgreSQL
 
 1. En la carpeta "files", se encuentra el script "librarydb.sql" para crear la base de datos.
 2. En el archivo "model/connectDB.go", actualizar los datos para la conexión a la base de datos.

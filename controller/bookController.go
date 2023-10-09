@@ -47,7 +47,7 @@ func CreateBook(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{"message": "Libro creado con éxito"})
+	c.JSON(http.StatusCreated, gin.H{"message": "resource created successfully"})
 
 }
 
@@ -91,7 +91,7 @@ func UpdateBook(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Libro actualizado con éxito"})
+	c.JSON(http.StatusOK, gin.H{"message": "resource updated successfully"})
 }
 
 func DeleteBook(c *gin.Context) {
@@ -114,5 +114,5 @@ func DeleteBook(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "deleted resource"})
+	c.JSON(http.StatusOK, gin.H{"message": "resource deleted successfully"})
 }
